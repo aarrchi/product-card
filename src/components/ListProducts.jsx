@@ -2,10 +2,10 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import { Button } from "react-bootstrap";
 
-const ListProducts = ({ prodData}) => {
+const ListProducts = ({ prodData, deleteProduct}) => {
   //console.log(prodData);
   return (
-    <Card style={{ width: "22rem", height: "580px" }} className='mb-5 ms-5'>
+    <Card style={{ width: "22rem", height: "570px" }} className='mb-5 ms-5'>
       <Card.Img src={prodData.thumbnail} className="h-75"></Card.Img>
       <Card.Body>
         <Card.Title>{prodData.title}</Card.Title>
@@ -14,7 +14,7 @@ const ListProducts = ({ prodData}) => {
             ? prodData.description.slice(0, 29) + "..."
             : prodData.description}
         </Card.Text>
-        <Button variant="primary" >
+        <Button variant="primary" onClick={(e) => {deleteProduct(prodData.id)}}>
           Delete
         </Button>
       </Card.Body>

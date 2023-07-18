@@ -1,10 +1,10 @@
 import "./App.css";
-
+import {useState} from 'react';
 import ListProducts from "./components/ListProducts";
 
 
 function App() {
-  const products = [
+  const [products, setProducts] = useState([
     {
       id: 1,
       title: "iPhone 9",
@@ -580,9 +580,15 @@ function App() {
         "https://i.dummyjson.com/data/products/30/thumbnail.jpg",
       ],
     },
-  ]
+  ]);
 
-  
+  const deleteProduct = (id) => {
+    const filteredProducts = products.filter((prod) => {
+      return prod.id !== id
+    });
+
+    setProducts(filteredProducts);
+  }
 
   return (
 <>
@@ -593,6 +599,7 @@ function App() {
           <ListProducts
             key={prod.id}
             prodData={prod}
+            deleteProduct={deleteProduct}
            
           ></ListProducts>
         );
