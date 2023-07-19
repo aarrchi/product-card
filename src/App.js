@@ -593,6 +593,10 @@ function App() {
     setProducts(filteredProducts);
   }
 
+  const cancelProduct = () => {
+    setShowModal(false);
+  };
+
   return (
 <>
       <h3 className="text-center mb-3 mt-3">Products</h3>
@@ -610,7 +614,12 @@ function App() {
       })}
     </div>
 
-    <AddProducts showModal = {showModal}></AddProducts>
+    <AddProducts 
+    showModal = {showModal}
+    cancelProduct ={cancelProduct}
+    >
+   
+    </AddProducts>
 
 
     </>

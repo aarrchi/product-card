@@ -10,7 +10,7 @@ const AddProducts = (props) => {
             <Modal.Body>Modal Body</Modal.Body>
             <Modal.Footer>
                 <button>Add Products</button>
-                <button>Cancel</button>
+                <button onClick={props.cancelProduct}>Cancel</button>
             </Modal.Footer>
         </Modal>
       
