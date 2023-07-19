@@ -585,6 +585,11 @@ function App() {
 
   const [showModal, setShowModal] = useState(false);
 
+  const [title, setTitle] = useState('');
+  const [thumbnail, setThumbnail] = useState('');
+  const[description, setDescription] = useState('');
+
+
   const deleteProduct = (id) => {
     const filteredProducts = products.filter((prod) => {
       return prod.id !== id
@@ -595,6 +600,22 @@ function App() {
 
   const cancelProduct = () => {
     setShowModal(false);
+  };
+
+  const addProducts = (e) => {
+     e.preventDefault();
+
+     console.log(products);
+
+     const obj = {
+      id: Date.now(),
+      title,
+      thumbnail,
+      description
+     }
+     console.log(obj);
+     const allproducts = [obj, ...products];
+     setProducts(allproducts);
   };
 
   return (
@@ -617,6 +638,10 @@ function App() {
     <AddProducts 
     showModal = {showModal}
     cancelProduct ={cancelProduct}
+    addProducts ={addProducts}
+    setTitle = {setTitle}
+    setThumbnail = {setThumbnail}
+    setDescription = {setDescription}
     >
    
     </AddProducts>
