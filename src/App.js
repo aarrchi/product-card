@@ -1,6 +1,7 @@
 import "./App.css";
 import {useState} from 'react';
 import ListProducts from "./components/ListProducts";
+import AddProducts from "./components/AddProducts";
 
 
 function App() {
@@ -582,6 +583,8 @@ function App() {
     },
   ]);
 
+  const [showModal, setShowModal] = useState(false);
+
   const deleteProduct = (id) => {
     const filteredProducts = products.filter((prod) => {
       return prod.id !== id
@@ -592,7 +595,8 @@ function App() {
 
   return (
 <>
-    
+      <h3 className="text-center mb-3 mt-3">Products</h3>
+      <button className="btn btn-outline-primary mb-5" style={{marginLeft: '200px'}} onClick={(e) => setShowModal(true)}>Add Products</button>
     <div className="d-flex flex-wrap justify-content-center">
       {products.map((prod) => {
         return (
@@ -605,6 +609,8 @@ function App() {
         );
       })}
     </div>
+
+    <AddProducts showModal = {showModal}></AddProducts>
 
 
     </>
